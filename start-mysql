@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+GUTENBERG_DIR="${MARFEELXP_HOME}/../Gutenberg"
+
+docker run --rm -p 3306:3306 -v $DIR/data:/var/lib/mysql -v $GUTENBERG_DIR/MarfeelAnubis/src/main/resources:/schemas -e MYSQL_ROOT_PASSWORD=my-secret-pw -d --name insight-mysql mysql
